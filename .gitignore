@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+/secrets.toml
+/secret.toml
+PySIP.log

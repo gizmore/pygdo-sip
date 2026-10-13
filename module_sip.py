@@ -10,11 +10,15 @@ class module_sip(GDO_Module):
 
     def gdo_module_config(self) -> list[GDT]:
         return [
-            GDT_Bool('sip_enabled').not_null().initial('0'),
         ]
 
-    def cfg_enabled(self) -> bool:
-        return self.get_config_value('sip_enabled')
+    def gdo_user_settings(self) -> list[GDT]:
+        return [
+            GDT_
+        ]
+
+    def gdo_dependencies(self) -> list:
+        return ['audio', 'mira']
 
     def gdo_init(self):
         Connector.register(SIP, False)
