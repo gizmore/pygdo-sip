@@ -1,4 +1,3 @@
-from gdo.base.Logger import Logger
 from gdo.base.Message import Message
 from gdo.base.Render import Mode
 from gdo.core.Connector import Connector
@@ -15,21 +14,25 @@ class SIP(Connector):
         return 'Local SIP bridge'
 
     def gdo_needs_authentication(self) -> bool:
-        return False
+        return True
+
+    def gdo_has_channels(self) -> bool:
+        return True
 
     @classmethod
     def get_server(cls) -> GDO_Server:
         return GDO_Server.get_by_connector('sip')
 
     async def gdo_connect(self) -> bool:
-        self._connected = True
-        return True
+        # Registration is not a transport. Do not report a nonexistent listener.
+        self._connected = False
+        return False
 
     def chatstream_event(self, stream: ChatStream) -> str:
         return stream.to_event()
 
     async def gdo_send_to_channel(self, msg: Message):
-        Logger.message('SIP reply dropped: no text-to-speech bridge is configured.')
+        raise RuntimeError('SIP send unavailable: no active call transport or speech output.')
 
     async def gdo_send_to_user(self, msg: Message, notice: bool = False):
-        Logger.message('SIP reply dropped: no text-to-speech bridge is configured.')
+        raise RuntimeError('SIP send unavailable: no verified active call mapping or transport.')

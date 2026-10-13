@@ -1,0 +1,34 @@
+[2026-10-11T10:01:35+02:00] lokal geändert / geprüft
+Schritt: Anrufverwaltung und Event-Validierung auf feature/sip-call-lifecycle.
+Dateien: connector/ChatStream.py, CallRegistry.py, SIP.py, Tests und README.
+Beleg: 15 Unit-/Async-Tests, Import, Syntax und Diff-Prüfung bestanden. Keine Listener, Geräte, Konten oder private Mailbox verändert. Kein Push/Merge.
+Offen: echte Channel-/User-Erzeugung, Transport und Audio-Integration; Nummernkennungen sind keine Authentifizierung.
+Nächster Schritt: Simion – veröffentlichten Audio-Branch separat prüfen und Adapter integrieren.
+
+[2026-10-11T10:05:26+02:00] lokal geändert / geprüft
+Schritt: Verifizierten Audio-Commit separat geprüft und gebundene Ereignisübergabe ergänzt.
+Dateien: ChatStream.py, AudioBridge.py, Test-Runner, Audio-Tests, README.
+Beleg: 20 SIP-/Integrationstests und 11 Audio-Tests bestanden; Syntax und Diff geprüft. Whisper-Modell simuliert, keine echte Telefonie.
+Offen: Transport, echte Channel-/User-Erzeugung und Audio-Härtung. Kein Commit wegen fehlender lokaler Git-Autoridentität; kein Push/Merge.
+Nächster Schritt: Simion und Mira – Audio-Vertrag und Transportadapter abstimmen.
+
+[2026-10-11T10:08:10+02:00] lokal geprüft
+Schritt: Separaten Audio-Feature-Branch auf verifizierten Commit ef5cd22957207539e503c90dd0db616be0d21ab2 aktualisiert.
+Dateien: Audio-Prüfkopie, SIP-README und Projektlog.
+Beleg: 20 SIP-/Integrationstests und 14 Audio-Tests bestanden; PCM-Härtung im Diff geprüft. Keine Telefonie oder Mailbox geändert, kein Push.
+Offen: echter SIP-Transport und Channel-Erzeugung.
+Nächster Schritt: Simion – Transportadapter auf dem Feature-Branch ausarbeiten.
+
+[2026-10-11T10:31:20+02:00] lokal geändert / geprüft
+Schritt: SIP-Sendeplatzhalter melden fehlenden Transport mit RuntimeError statt stiller Rückkehr.
+Dateien: connector/SIP.py, test/test_send.py.
+Beleg: 23 SIP-/Integrationstests bestanden, darunter drei neue Sendetests; kein msg_sent bei fehlendem Transport. Diff-Prüfung bestanden. Testaufbau für nicht gestartetes Application.EVENTS korrigiert.
+Offen: echte Sprachausgabe und Transport, kein Commit/Push/Live-Umbau.
+Nächster Schritt: Simion – Transportadapter ausarbeiten.
+
+[2026-10-11T10:36:28+02:00] lokal konfiguriert / geprüft
+Schritt: Nach bestätigtem Projektbeitritt origin von HTTPS auf SSH umgestellt.
+Dateien: lokale .git/config.
+Beleg: SSH authentifiziert als ChicoShi; ls-remote zeigt main a275200. Kein Push/Merge, Arbeitsdateien unverändert.
+Offen: Schreibzugriff nicht durch Upload getestet.
+Nächster Schritt: Simion – SIP-Transportadapter lokal weiterentwickeln.
