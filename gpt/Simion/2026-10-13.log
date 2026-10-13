@@ -1,0 +1,6 @@
+[2026-10-13T16:06:20+02:00] gepusht / geprüft
+Schritt: Nach ausdrücklicher Eigentümerfreigabe den lokalen SIP-Stand auf main veröffentlicht.
+Dateien: Connector, Anrufverwaltung, Audio-Ereignisbrücke, Tests und README.
+Beleg: 23 Tests erfolgreich; git diff --check ohne Befund; main per Fast-Forward auf Codecommit 9679583; Push bestätigt.
+Offen: echter SIP-Transport, Channel-/User-Erzeugung und Sprachausgabe; keine Live-Anbindung vorgenommen.
+Nächster Schritt: Gizmore – veröffentlichten Stand prüfen und weitere Transportintegration abstimmen.
