@@ -1,0 +1,4 @@
+err_hat_kein_phone = "%s has no phone number configured."
+err_sip_call_unavailable = "The SIP connection is not ready."
+msg_sip_call_started = "Call to %s started."
+msg_sip_direct_call_started = "Call started."
