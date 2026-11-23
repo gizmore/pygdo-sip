@@ -19,7 +19,7 @@ from gdo.base.Render import Mode
 from gdo.core.Connector import Connector
 from gdo.core.GDO_Server import GDO_Server
 from gdo.core.GDT_UserType import GDT_UserType
-from gdo.mira.util import send_to_mira
+from gdo.mira.util import chat_show_context, send_to_mira
 from gdo.sip.GDT_Phone import GDT_Phone
 
 
@@ -754,7 +754,7 @@ class SIP(Connector):
         Mira bridge preserves the complete event envelope, including call and
         sequence metadata, and routes it directly to the agent terminal.
         """
-        await asyncio.to_thread(send_to_mira, event)
+        await asyncio.to_thread(send_to_mira, chat_show_context(event))
 
     async def gdo_send_to_channel(self, msg: Message):
         channel = msg._env_channel

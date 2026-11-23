@@ -247,10 +247,11 @@ class SIPTest(unittest.IsolatedAsyncioTestCase):
         session = SIPCall(object(), object(), object())
         event = '$chatstreambegin 12 --lang=de'
 
-        with patch('gdo.sip.connector.SIP.send_to_mira') as send:
+        with patch('gdo.sip.connector.SIP.send_to_mira') as send, \
+             patch('gdo.sip.connector.SIP.chat_show_context', return_value=event + ' --show-host=unknown'):
             await connector.emit(session, event)
 
-        send.assert_called_once_with(event)
+        send.assert_called_once_with(event + ' --show-host=unknown')
 
     async def test_response_is_spoken_only_on_its_active_call_channel(self):
         spoken = []
